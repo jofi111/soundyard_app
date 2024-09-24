@@ -1,0 +1,16 @@
+﻿@using System.Web.Mvc
+@using club.soundyard.web.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<h2>Vítejte na domovské stránce!</h2>
+<p>
+    <a href="@Url.Action("Login", "Account")" class="btn btn-secondary">Přihlásit se</a>
+    <a href="@Url.Action("Register", "Account")" class="btn btn-primary">Registrovat se</a>
+</p>
+
+<p>
+    Prosím přihlašte se nebo zaregistrujte se.
+</p>

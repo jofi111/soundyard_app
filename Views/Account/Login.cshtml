@@ -1,0 +1,39 @@
+﻿@model club.soundyard.web.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Přihlášení";
+}
+
+<h2>Přihlášení</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-check">
+        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+        @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Přihlásit se</button>
+}
+
+<div>
+    <p>Ještě nemáte účet? <a href="@Url.Action("Register", "Account")">Registrovat se zde</a>.</p>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
